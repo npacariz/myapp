@@ -6,6 +6,7 @@
    <title>Document</title>
 </head>
 <body>
+
 <h1>Register: </h1>
 
 <form action="/register" method="POST">
@@ -26,7 +27,14 @@
        <label for="company">Company</label>
        <input type="text" class="form-control"  name="company"  id="company">
    </div>
-  
+   <div class="form-group">
+       <label for="country">Country</label>
+       <select name="country" id="country">
+            @foreach($countries as $country)
+                <option value={{$country}}>{{$country}}</option>
+            @endforeach
+        </select>
+   </div>
    <div class="form-group">
        <label for="password">Password:</label>
        <input type="password" class="form-control" name='password' id="password">
