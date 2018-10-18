@@ -15,6 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', function() {
-    return 'hello';
-})->middleware('myMiddleware');
+Route::get('home', 'HomeController@index')->middleware('myMiddleware');
