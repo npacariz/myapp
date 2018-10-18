@@ -19,5 +19,11 @@ class LoginController extends Controller
         return redirect('/home');
     }
  
+    public function destroy() {
+
+        Auth()->logout();
+        return redirect('/login');
+    }
+
  
 }

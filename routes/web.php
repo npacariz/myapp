@@ -17,5 +17,7 @@ Route::get('/', function () {
 
 Route::get('home', 'HomeController@index')->middleware('myMiddleware');
 
-Route::get('login', 'LoginController@create')->name('login');;
+Route::get('login', 'LoginController@create')->name('login');
+Route::post('login', 'LoginController@store');
+Route::get('logout', 'LoginController@destroy');
 
