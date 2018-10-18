@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest')->except('destroy');
+        $this->middleware('auth')->only('destroy');
+       
+    }
+ 
     public function create() {
         return view('Auth.login');
     }
