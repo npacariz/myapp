@@ -11,9 +11,7 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-    
-    
-    
+
     public $listOfCountries = ['Serbia', 'USA', 'UK', 'Austria'];
 
     public function create() {
@@ -23,6 +21,14 @@ class RegisterController extends Controller
 
     public function store() {
         
+        $this->validate(request(), [
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'email' => 'required|email',
+            'company' => 'required',
+            'password' => 'required|confirmed',
+            'country' => 'required|in:'.implode(',', $this->listOfCountries),
+        ]);
 
         $user = User::create([
             'firstName' => request('firstName'),
