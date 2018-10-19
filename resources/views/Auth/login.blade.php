@@ -11,7 +11,7 @@
            <input type="password" class="form-control" name='password' id="password">
        </div>
        <button type="submit" class="btn btn-default">Submit</button>
-       <a href="/register" role="button">Sing up</a>
+       <a href="/register" class="btn btn-default" role="button">Sing up</a>
    </form>
 @include('partial/footer')
 
