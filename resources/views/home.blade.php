@@ -1,4 +1,5 @@
-@include('partial/header')
-    <h1>This is home pages</h1>
+@extends('layout.master')
+    @section('content')
+        <h1>This is home pages</h1>
+    @endsection
 
-@include('partial/footer')
