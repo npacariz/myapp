@@ -6,6 +6,3 @@
     {
         public $countries = ['Serbia', 'USA', 'UK', 'Austria', 'Madjarska'];
     }
-
-
-?>

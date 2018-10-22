@@ -7,20 +7,7 @@ use App\User;
     {
        public function registerUser($request)
        {
-            $user = User::create([
-                'firstName' => request('firstName'),
-                'lastName' => request('lastName'),
-                'email' => request('email'),
-                'company' => request('company'),
-                'country' => request('country'),
-                'password' => bcrypt(request('password')),
-            ]);
-
-            return $user;
-
+            $newUser = User::create($request->all());  
+            return $newUser;
        }
     }
-
-
-
-?>
