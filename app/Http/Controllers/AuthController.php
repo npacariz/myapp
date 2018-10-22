@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\registerValidation;
 use App\Services\UserRegistrationService;
-
+use App\Services\CountriesService;
 class AuthController extends Controller
 {
     /**
@@ -79,15 +79,20 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => auth()->factory()->getTTL() * 60,
+            'user_id' => auth()->user()->id,
         ]);
     }
 
     public function register(registerValidation $request, UserRegistrationService $registerUser) {
   
             $user = $registerUser->registerUser($request);
-         
+
             return $this->login($user->email, $user->password);
          
+     }
+
+     public function create (CountriesService $countries) {
+         return  $countries->countries;
      }
 }
