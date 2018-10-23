@@ -23,7 +23,7 @@ Route::group([
     Route::post('refresh', 'AuthController@refresh');
     Route::get('create', 'UserController@create');
     Route::post('me', 'UserController@show');
-    Route::post('register', 'AuthController@store');
+    Route::post('register', 'UserController@store');
 });
 
 Route::resource('todos', 'TodoController');

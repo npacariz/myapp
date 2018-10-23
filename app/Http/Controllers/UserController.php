@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\AuthController;
+use App\Http\Requests\registerValidation;
+use App\Services\CountriesService;
+use App\Services\UserRegistrationService;
 
 class UserController extends Controller {
     /**
@@ -14,11 +18,11 @@ class UserController extends Controller {
     /**
      * Post for registering new user
      */
-    public function store(registerValidation $request, UserRegistrationService $registerUser) {
+    public function store(registerValidation $request, UserRegistrationService $registerUser, AuthController $loginUser) {
 
         $user = $registerUser->registerUser($request);
 
-        return $this->login($user->email, $user->password);
+        return $loginUser->login($user->email, $user->password);
     }
     /**
      * List of contutries for user register form
