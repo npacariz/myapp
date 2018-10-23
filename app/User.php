@@ -2,13 +2,12 @@
 
 namespace App;
 
-use Tymon\JWTAuth\Contracts\JWTSubject;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Todo;
-class User extends Authenticatable implements JWTSubject
-{
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+
+class User extends Authenticatable implements JWTSubject {
     use Notifiable;
 
     /**
@@ -17,7 +16,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'firstName', 'lastName', 'company','country','email', 'password',
+        'firstName', 'lastName', 'company', 'country', 'email', 'password',
     ];
 
     /**
@@ -29,8 +28,7 @@ class User extends Authenticatable implements JWTSubject
         'password', 'remember_token',
     ];
 
-    public function setPasswordAttribute($password)
-    {   
+    public function setPasswordAttribute($password) {
         $this->attributes['password'] = bcrypt($password);
     }
 
@@ -38,8 +36,7 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Todo::class);
     }
 
-    public function getJWTIdentifier()
-    {
+    public function getJWTIdentifier() {
         return $this->getKey();
     }
 
@@ -48,8 +45,7 @@ class User extends Authenticatable implements JWTSubject
      *
      * @return array
      */
-    public function getJWTCustomClaims()
-    {
+    public function getJWTCustomClaims() {
         return [];
     }
 }
