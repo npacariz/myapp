@@ -37,10 +37,12 @@ class TodoService {
      */
     public static function update($request, $todo) {
         $todoForUpdate = Todo::findOrFail($todo);
-        return $todoForUpdate->update([
+        $todoForUpdate->update([
             'title' => $request['title'],
             'priority' => $request['priority'],
             'is_done' => $request['is_done'],
         ]);
+
+        return response()->json($todoForUpdate);
     }
 }

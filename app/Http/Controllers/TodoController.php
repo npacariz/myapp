@@ -30,7 +30,6 @@ class TodoController extends Controller {
      * Put method calling todo servis to update todo
      */
     public function update(TodoRequest $request, $todo) {
-
         return TodoService::update($request, $todo);
     }
 }

@@ -23,7 +23,7 @@ class TodoRequest extends FormRequest {
         return [
             'title' => 'required',
             'is_done' => 'boolean',
-            'priority' => 'integer',
+
         ];
     }
 }
