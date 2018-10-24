@@ -8,13 +8,13 @@ use App\Todo;
 class TodoController extends Controller {
 
     /**
-     *Get method calling Todo servis to get users todos
+     * Get method calling Todo servis to get users todos
      */
     public function index() {
         return TodoService::index();
     }
     /**
-     * post method calling todoservies to store new todo
+     * Post method calling todoservies to store new todo
      */
     public function store(TodoRequest $request) {
         return TodoService::store($request);
