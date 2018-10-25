@@ -23,4 +23,4 @@ Route::group([
     Route::post('register', 'UserController@store');
 });
 
-Route::resource('todos', 'TodoController');
+Route::resource('todos', 'TodoController')->middleware('auth');
